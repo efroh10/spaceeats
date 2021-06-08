@@ -3,26 +3,38 @@ import { useState } from 'react';
 import data from './restaurantData.js';
 
 const RestaurantName = styled.h1`
-
+    font-style: italic;
 `
 
 const MenuItem = styled.div`
     background-color: ${props => (props.backgroundColor % 2) ? data[props.selectedRestaurant]['secondaryColor'] : 'white'};
     color: ${props => data[props.selectedRestaurant]['tertiaryColor']};
+    padding: 15px;
 `
 
 const StyledCart = styled.div`
-
+    margin-left: 25px;
 `
 
 const Menu = styled.div`
-
+    width: 500px;
 `
+
+const AddButton = styled.button`
+    border: 1px gray solid;
+    border-radius: 5px;
+    :hover {
+        cursor: pointer;
+    }
+`;
 
 const StyledDeleteButton = styled.button`
     background-color: ${props => props.checked ? 'red' : 'white'};
     border: 1px gray solid;
     border-radius: 5px;
+    :hover  {
+        cursor: pointer;
+    }
 `;
 
 export function Restaurant(props)  {
@@ -46,7 +58,7 @@ function Title(props)    {
 function MenuItems(props)    {
     return(
         <Menu>
-            {data[props.selectedRestaurant]['menu'].map((item, index) => <MenuItem selectedRestaurant = {props.selectedRestaurant} key = {item.price * Math.random()} backgroundColor = {index}>{item.name}{item.price}<button onClick = {() => addToCart(item, props.setCart, props.cart)}>Add To Cart</button></MenuItem>)}
+            {data[props.selectedRestaurant]['menu'].map((item, index) => <MenuItem selectedRestaurant = {props.selectedRestaurant} key = {item.price * Math.random()} backgroundColor = {index}>{item.name}{item.price}<AddButton onClick = {() => addToCart(item, props.setCart, props.cart)}>Add To Cart</AddButton></MenuItem>)}
         </Menu>
     );
 }

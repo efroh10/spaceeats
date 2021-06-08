@@ -6,6 +6,9 @@ const StyledButton = styled.button`
     background-color: green;
     border: 1px gray solid;
     border-radius: 5px;
+    :hover  {
+        cursor: pointer;
+    }
 `;
 
 const StyledOption = styled.span`
@@ -30,7 +33,7 @@ export function Dropdown(props) {
 function DropdownList(props) {
     return(
         <div>
-            {data.map((restaurant, index) => <StyledOption key = {restaurant.name} onClick = {() => {props.setSelectedRestaurant(index); props.setShowList(false); console.log(props.selectedRestaurant)}}>{restaurant.name}</StyledOption>)}
+            {data.map((restaurant, index) => <StyledOption key = {restaurant.name} onClick = {() => {props.setSelectedRestaurant(index); props.setShowList(false);}}>{restaurant.name}</StyledOption>)}
         </div>
     );
 }

@@ -6,7 +6,6 @@ import  {Restaurant} from './restaurant';
 
 const StyledContainer = styled.div`
     height: 10000px;
-    margin-left: 50px;
     background-color: ${props => (props.sr + 1) ? data[props.sr]['primaryColor'] : 'white'};
 `;
 
